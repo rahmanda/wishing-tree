@@ -1,6 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { GoogleSpreadsheet } from 'google-spreadsheet'
 import { google } from 'googleapis'
 
 type Data = {
