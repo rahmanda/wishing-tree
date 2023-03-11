@@ -12,14 +12,7 @@ export default function Home() {
 
                 <img src="https://image.ibb.co/mwmBua/tree.png" className="tree_img" />
 
-                <div className="leaf_test">
-                <div id="wish_0" className="leaf_group leaf_1" >
-                    <p className="text_on_leaf wish_on_leaf">  </p>
-                    <p className="text_on_leaf name_on_leaf"></p>
-                    <p className="text_on_leaf time_tag"></p>
-                </div>
-
-                </div>
+                <div className="leaf_test"/>
                 <div className="modal fade" id="myModal" role="dialog">
                     <div className="modal-dialog modal-sm">
 

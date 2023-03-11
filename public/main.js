@@ -1,8 +1,4 @@
 $(document).ready(function() {
-
-
-
-
     //shuffle function for fake random
     function shuffle(array) {
         var currentIndex = array.length;
@@ -59,7 +55,31 @@ $(document).ready(function() {
     var TimeText;
 
     //add the data from sharepoint
-    from_sharepoint();
+    // from_sharepoint();
+    from_sheet();
+
+    function from_sheet() {
+      var options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+      };
+      const dt = new Intl.DateTimeFormat('en-GB', options)
+      fetch("/api/wishes")
+        .then((response) => response.json())
+        .then((data) => {
+          data.forEach(item => {
+            WishText = item.wish
+            NameText = item.name
+            TimeText = dt.format(new Date(item.timestamp))
+            prepare_data()
+            CreatALeaf(wish_data);
+          });
+        });
+    }
 
 
     //creat a leaf when click make a wish button

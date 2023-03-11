@@ -92,15 +92,13 @@ body {
 .text_on_leaf {
     z-index: 999;
     transform: rotate(180deg);
-    text-overflow: ellipsis;
-    overflow: hidden;
     /*    margin: 50% 20% 30% 20%;*/
     margin: 25% auto auto 30%;
     width: 50%;
-    height: 20%;
+    height: 50%;
 }
 
-.name_on_leaf {
+.wish_on_leaf {
     display: none;
 }
 
