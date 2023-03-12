@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { google } from 'googleapis'
+import { parse } from 'date-fns'
 
 type Data = {
-  timestamp: string
+  timestamp: number
   name: string
   wish: string
 }
@@ -22,15 +23,9 @@ export default async function handler(
   })
 
   const data: Data[] = (apiResponse.data.values ?? []).map(item => ({
-    timestamp: item[0],
+    timestamp: parse(item[0], 'dd/MM/yyyy HH:mm:ss', new Date()).getTime(),
     name: item[1],
     wish: item[2],
   }))
-  // const data: Data[] = rows.map(row => ({
-  //   timestamp: row.Timestamp,
-  //   name: row.Nama,
-  //   wish: row.Ucapan,
-  // }))
-
   res.status(200).json(data)
 }
